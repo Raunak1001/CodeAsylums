@@ -77,7 +77,7 @@ while(t--){
             cout<<finalans<<"\n";
             continue;
         }
-        else{   
+        else{
 
             finalans=n-index_last;
            
