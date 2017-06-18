@@ -1,0 +1,5 @@
+****
+Sum of degress of every vertex of graph is atleast 2*E where E is the edges.
+So if Sum of degrees is 2*(n-1) then its a tree (n is the number of vertices).
+
+****
