@@ -2,64 +2,85 @@
 using namespace std;
 #define vi vector<long long int>
 #define vvi vector<vector<long long int> >
+#define vvp vector<vector<pair<long long int,long long int> > >
 #define ll long long int 
 
-ll myfun(vvi &a,vvi &v,ll i,ll j,ll parentx,ll parenty){
-ll n= v.size();    
-    if(i==n-1 && j==n-1){
-        //cout <<"aya"<<endl;
-        return v[i][j];
+bool valid(ll i,ll j, ll n){
+    if(i<0 || i>=n || j<0 || j>=n){
+        return false;
     }
-    if(i<0 || i>=n ||j<0 ||j>=n){
-        return 10000000;
-    }
-    if(a[i][j]!=-1){
-        return a[i][j];
-    }
-           // cout <<"aya"<<endl;
+    return true;
+}
 
-a[i][j]=100000000;
-for(ll k=-1;k<2;k++){
-    for(ll p=-1;p<2;p++){
-        if(k==p){
-            continue;
-        }
-if(i+k!=parentx || j+p!=parenty){
-    a[i][j]=min(a[i][j],myfun(a,v,i+k,j+p,i,j));
-    }
-}
-}
-return a[i][j]=a[i][j]+v[i][j];
-}
 
 
 int main()
  {
 
 ll t;
-cin >>t;
+cin >> t;
 for(ll q=0;q<t;q++){
     ll n;
-    cin >>n;
-    vvi v(n,vi(n,0)),a(n,vi(n,-1));
-    for(ll i=0;i<n;i++){
-        for(ll j=0;j<n;j++){
-            cin >>v[i][j];
-        }
-    }
-    a[0][0]=v[0][0]+min(myfun(a,v,1,0,0,0),myfun(a,v,0,1,0,0));
-    
-    cout << a[0][0]<<endl;
-    
-    
+    cin >> n;
+  vvp v(n*n);
+  vvi a(n,vi(n));
 
-    for(ll i=0;i<n;i++){
-        for(ll j=0;j<n;j++){
-            cout << a[i][j]<<" ";
-        }
-        cout << endl;
+for(ll i=0;i<n;i++){
+    for(ll j=0;j<n;j++){
+        cin >> a[i][j];
     }
 }
 
-	return 0;
+
+for(ll i=0;i<n;i++){
+    for(ll j=0;j<n;j++){
+ll temp=i*n+j;
+
+if(valid(i+1,j,n)){
+    v[temp].push_back(make_pair((i+1)*n+j,a[i+1][j]));
+}
+
+if(valid(i-1,j,n)){
+    v[temp].push_back(make_pair((i-1)*n+j,a[i-1][j]));
+}
+
+if(valid(i,j+1,n)){
+    v[temp].push_back(make_pair((i)*n+j+1,a[i][j+1]));
+}
+
+if(valid(i,j-1,n)){
+    v[temp].push_back(make_pair((i)*n+j-1,a[i][j-1]));
+}
+
+
+
+    }
+}
+
+vi dis(n*n,100000);
+dis[0]=0;
+priority_queue<pair<ll,ll> vector<pair<ll,ll> >,greater<pair<ll> > > pq;
+pq.push(make_pair(0,0));
+while(!pq.empty()){
+pair<ll,ll> p=pq.top();
+pq.pop();
+for(ll i=0;i<v[p.first].size();i++){
+if(dis[v[p.first][i].first]>dis[p.first]+v[p.first][i].second){
+    dis[v[p.first][i].first]=dis[p.first]+v[p.first][i].second;
+    pq.push(make_pair(v[p.first][i].first,dis[v[p.first][i].first]));
+}
+
+
+}
+
+
+}
+
+
+cout << dis[n*n]<< endl;
+
+}
+
+
+    return 0;
 }
