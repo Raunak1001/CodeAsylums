@@ -15,6 +15,10 @@ Server,Servlet,TomCatCntainer.
 
 OOPS: Incapsulation,Inheritance,Abstraction,Polymorphism
 
+***** Matrix Exponentiation
+http://www.geeksforgeeks.org/matrix-exponentiation/
+
+
 
 
 
