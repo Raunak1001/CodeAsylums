@@ -1,0 +1,34 @@
+**** LIS in nlogn Geeks for geeks
+Declare Global Arrays for 10^7;
+
+**** For fixed number of decimal places
+cout << std::fixed;
+cout <<std::setprecision(9);
+
+***** Matrix Exponentiation
+http://www.geeksforgeeks.org/matrix-exponentiation/
+
+***** Array Rotation
+Juggling theorem
+http://www.geeksforgeeks.org/array-rotation/
+
+*****GCD
+http://www.geeksforgeeks.org/eulers-totient-function/
+
+
+****
+Sum of degress of every vertex of graph is atleast 2*E where E is the edges.
+So if Sum of degrees is 2*(n-1) then its a tree (n is the number of vertices).
+
+****
+     priority_queue<pr,vp,greater<pr> >  pq;
+
+
+****In case of subtracting numbers take care of MOD
+	For eg. V[i]=(V[i]%c + a%c - b%c)%c
+			if(v[i]<0) v[i]+=c;
+
+****
+	InterrviewBit SortMedian and bookAllocation in Binary Search
+
+****

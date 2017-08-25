@@ -13,9 +13,9 @@ if(index>=24){
 if(v[index]!=50){
 	return v[index];
 }
-if(m.find(index)!=m.end()){
+if(m[index]!=0){
 	//cout << m.find(index)->second<< endl;	
-	v[index]=min(v[index],myfun(v,m,m.find(index)->second));
+	v[index]=min(v[index],myfun(v,m,m[index]));
 }else{
 	for(int i=1;i<=6;i++){
 		//cout << i<< endl;
