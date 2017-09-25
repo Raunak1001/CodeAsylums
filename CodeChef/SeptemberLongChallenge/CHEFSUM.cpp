@@ -16,7 +16,7 @@ using namespace std;
 #define vvvb vector< vvb >
 #define rep(i,a,b) for(ll i=a;i<b;i++)
 #define repr(i,b,a) for(ll i=b;i>=a;i--)
-#define show(a) rep(i,0,a.size()){cout <<a[i]<<" ";}
+#define show(a) rep(i,a,b){cout <<a[i]<<" ";}
 #define ct(a) cout <<a<<endl
 
 
@@ -26,5 +26,26 @@ int main(){
 		cin.tie(NULL);
 		cout.tie(NULL);
 
+
+		ll t;
+		cin>>t;
+		while(t--){
+
+			ll n;
+			cin >>n;
+			ll mn=1000000000;
+			ll ans=0;
+			for(ll i=0;i<n;i++){
+				ll a;
+				cin >>a;
+				if(a<mn){
+					mn=a;
+					ans=i;
+				}
+			}
+			cout << ans+1<< endl;
+
+		}
+
 	return 0;
-}			
+}		

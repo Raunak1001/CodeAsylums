@@ -26,5 +26,42 @@ int main(){
 		cin.tie(NULL);
 		cout.tie(NULL);
 
+		ll t;
+		cin >>t;
+		while(t--){
+    ll count=0;
+			string s;
+			cin >>s;
+			map<ll,bool> m;
+			if(s=="6174"){
+			    cout << 0<< endl;
+			    continue;
+			}
+			while(1){
+			    count++;
+			sort(s.begin(),s.end());
+			string ns=s;
+			reverse(ns.begin(),ns.end());
+			while(s.size()<4){
+				s+='0';
+			}
+
+			ll n=stoi(s);
+			ll  nm=stoi(ns);
+			ll temp=n-nm;
+			if(temp==6174){
+				cout << count<< endl;
+				break;
+			}
+			if(m[temp]){
+				cout <<0<< endl;
+				break;
+			}
+			m[temp]=1;
+			s=to_string(temp);
+		}
+		}
+
+
 	return 0;
 }			

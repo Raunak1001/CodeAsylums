@@ -14,79 +14,69 @@ using namespace std;
 
 
 int main(){
-/*ios_base::sync_with_stdio(false);
+ios_base::sync_with_stdio(false);
 cin.tie(0);
 cout.tie(0);
-*/
+
+
 ll t;
-scanf("%lld",&t);
-for(ll z=0;z<t;z++){
+cin >>t;
+while(t--){
 
-ll n;
-scanf("%lld",&n);
-vvi v(n+1,vi(n+1,0));
-map<string,ll> m;
-for(ll i=1;i<=n;i++)
-{	string s;
-	cin >>s;
-	m[s]=i;
-	ll m;
-scanf("%lld",&m);
-	for(ll j=0;j<m;j++){
-		ll a, b;
-scanf("%lld",&a);
-scanf("%lld",&b);
-		v[i][a]=b;
-
+	ll n;
+	cin >>n;
+	vvp v(n+1);
+	map<string,ll> m;
+	//cout << n<< endl;
+	for(ll i=1;i<=n;i++){
+		string s;
+		cin >>s;
+		m[s]=i;
+		ll p;
+		cin >>p;
+		
+		for(ll j=0;j<p;j++){
+			ll a,b;
+			cin >>a>>b;
+			v[i].pb(mp(a,b));
+			}
 	}
-}
+
+	ll num;
+	cin >>num;
+	while(num--){
+
+		string a,b;
+		cin >>a>>b;
+		ll start=m[a];
+		ll end=m[b];
+		priority_queue<pr,vp,greater<pr > > pq;
+		vi dis(n+1,INT_MAX);
+		dis[start]=0;
+		pq.push(mp(0,start));
+		while(!pq.empty()){
+			pr p=pq.top();
+			pq.pop();
+			for(ll i=0;i<v[p.second].size();i++){
+				if(dis[v[p.second][i].first]>dis[p.second]+v[p.second][i].second){
+					dis[v[p.second][i].first]=dis[p.second]+v[p.second][i].second;
+					pq.push(mp(dis[v[p.second][i].first],v[p.second][i].first));
+				}
+			}
 
 
-/*for(ll i=1;i<=n;i++){
-	for(ll j=1;j<=n;j++){
-		cout << dis[i][j]<<" ";
-	}
-	cout << endl;
-
-}*/
-
-
-
-
-
-ll q;
-cin >> q;
-for(ll i=0;i<q;i++){
-string a,b;
-cin >>a;
-cin >>b;
-ll j=m[a];
-ll k=m[b];
-vi dis(n+1,200001);
-dis[j]=0;
-priority_queue<pr,vp,greater<pr> > pq;
-pq.push(mp(0,j));
-while(!pq.empty()){
-pr p=pq.top();
-pq.pop();
-for(ll i=1;i<=n;i++){
-	if(v[p.second][i]!=0){
-		if(dis[i]>dis[p.second]+v[p.second][i]){
-			dis[i]=dis[p.second]+v[p.second][i];
-			pq.push(mp(dis[i],i));
 		}
 
+		cout << dis[end]<< endl;
 	}
-}
 
-}
-printf("%lld\n",dis[k]);
 
-}
 
 
 
 }
+
+
 
 
 }

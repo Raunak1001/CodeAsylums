@@ -26,5 +26,38 @@ int main(){
 		cin.tie(NULL);
 		cout.tie(NULL);
 
+		ll n,q;
+		cin >>n>>q;
+		map<pr,pr> m;
+
+		for(ll i=0;i<n;i++){
+			ll a,b,c,d;
+			cin >>a>>b>>c>>d;
+			pr p=mp(a,b);
+			if(m.find(p)!=m.end()){
+				pr t=m[p];
+				if(t.second<=d){
+					t.second=d;
+					t.first=c;
+				m[p]=t;
+				}
+			}else{
+				m[p]=mp(c,d);
+			}
+		}
+
+		while(q--){
+
+			ll a,b;
+			cin >>a>>b;	
+			pr p=mp(a,b);
+			cout << m[p].first<< endl;
+
+
+		}
+
+
+
+
 	return 0;
 }			

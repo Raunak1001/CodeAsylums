@@ -25,6 +25,23 @@ int main(){
 		std::ios::sync_with_stdio(false); 
 		cin.tie(NULL);
 		cout.tie(NULL);
+		string s;
+		cin >>s;
+		ll k;
+		cin>>k;
+		ll n=s.size();
+		map<char,ll>  m;
+		for(ll i=0;i<n;i++){
+			m[s[i]]++;
+		}
 
+		string b="";
+		for(ll i=0;i<n;i++){
+			if(m[s[i]]>=k){
+				b+=s[i];
+			}
+		}
+
+		cout <<b<< endl;
 	return 0;
-}			
+}		

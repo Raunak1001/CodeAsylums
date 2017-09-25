@@ -26,5 +26,50 @@ int main(){
 		cin.tie(NULL);
 		cout.tie(NULL);
 
+		ll n;
+		cin >>n;
+		string s;
+		char a;
+		ll sum=0;
+		while(n--){
+			cin >>a;
+			sum+=(a-'0');
+			if(n!=1)
+			cout <a<"+";
+			else
+				cout <<a<< endl;
+		}
+		s=to_string(sum);
+		n=s.size();
+		sum=0;
+		for(ll i=0;i<n;i++){
+			a=s[i];
+			sum+=('a'-0);
+			if(i!=n-1){
+				cout <<a<<"+";
+			}else{
+				cout <<a<< endl;
+			}
+
+		}
+
+		s=to_string(sum);
+		n=s.size();
+		sum=0;
+		for(ll i=0;i<n;i++){
+			a=s[i];
+			sum+=('a'-0);
+			if(i!=n-1){
+				cout <<a<<"+";
+			}else{
+				cout <<a<< endl;
+			}
+
+		}
+
+
+
+
+
 	return 0;
-}			
+}		

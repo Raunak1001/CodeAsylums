@@ -26,5 +26,34 @@ int main(){
 		cin.tie(NULL);
 		cout.tie(NULL);
 
+		ll t;
+		cin >>t;
+		while(t--){
+			ll n;
+			cin >>n;
+			ll count=n;
+			ll sum=0;
+			for(ll i=0;i<n;i++){
+				ll a;
+				cin >>a;
+				sum+=a;
+				if(a==0){
+					count--;
+				}
+			}
+			ll req=sum-100;
+			if(req<0){
+				cout << "NO"<< endl;
+				continue;
+			}
+			if(count>req || req==0 ){
+				cout <<"YES"<< endl;
+			}else{
+				cout << "NO"<< endl;
+			}
+
+		}
+
+
 	return 0;
-}			
+}		

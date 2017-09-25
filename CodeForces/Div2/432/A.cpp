@@ -26,5 +26,16 @@ int main(){
 		cin.tie(NULL);
 		cout.tie(NULL);
 
+		ll n,k,t;
+		cin >>n>>k>>t;
+		t%=(n+k);
+		//cout <<t<<endl;
+		if(t<=n){
+		cout << min(t,k);
+	}
+	else{
+		cout<<min(k,(k-(t%n)));
+	}
+
 	return 0;
 }			

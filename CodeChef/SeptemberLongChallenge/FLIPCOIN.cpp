@@ -26,5 +26,31 @@ int main(){
 		cin.tie(NULL);
 		cout.tie(NULL);
 
+		ll n,q;
+		cin>>n>>q;
+		vi v(n+2,0);
+		while(q--){
+			ll a,b,c;
+			cin >>a>>b>>c;
+			if(a==0){
+
+				v[b]++;
+				v[c+1]--;
+			}else{
+				ll count=0;
+				rep(i,1,n+1)
+				{	
+					v[i]+=v[i-1];
+					if(i>=b && i<=b && v[i]%2!=0){
+						count++;
+					}
+				}
+				cout << count<< endl;
+				}
+
+
+		}
+
+
 	return 0;
-}			
+}		

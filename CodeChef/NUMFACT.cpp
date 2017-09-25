@@ -25,6 +25,46 @@ int main(){
 		std::ios::sync_with_stdio(false); 
 		cin.tie(NULL);
 		cout.tie(NULL);
+		ll t;
+		cin >> t;
+		while(t--){
+
+			ll l;
+			cin >>l;
+			map<ll,ll> m;
+			for(ll i=0;i<l;i++){
+				ll a;
+				cin >>a;
+				ll k=2;
+				while(a>1){
+						if(a%k==0){
+							while(a%k==0){
+								m[k]++;
+								a/=k;
+							}
+						}
+					
+					k++;
+
+				}
+
+
+			}
+
+			ll ans=1;
+			map<ll,ll> :: iterator it;
+			for(it=m.begin();it!=m.end();++it){
+				ans*=(it->second + 1);
+			}
+
+
+			cout << ans<< endl;
+
+
+		}
+
+
+
 
 	return 0;
-}			
+}		

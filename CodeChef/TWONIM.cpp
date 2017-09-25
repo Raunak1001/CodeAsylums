@@ -26,5 +26,40 @@ int main(){
 		cin.tie(NULL);
 		cout.tie(NULL);
 
+		ll t;
+		cin >>t;
+		while(t--){
+
+			ll n;
+			cin >> n;
+			vi v(n);
+			map<ll,ll> m;
+			ll test=0;
+			ll count=0;
+			for(ll i=0;i<n;i++){
+				cin >> v[i];
+				m[v[i]]++;
+				if(m[v[i]]==2){
+					count++;
+					m[v[i]]=0;
+				}
+				test^=v[i];
+			}
+
+			 count=n-2*count;
+
+			if(count%2==0 || test==0){
+				cout << "First"<< endl;
+			}else{
+				cout <<"Second"<< endl;
+			}
+
+
+
+
+
+		}
+
+
 	return 0;
 }			

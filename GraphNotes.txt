@@ -5,3 +5,10 @@ So if Sum of degrees is 2*(n-1) then its a tree (n is the number of vertices).
 ****
      priority_queue<pr,vp,greater<pr> >  pq;
 ****
+	
+	Every tree is bipartate graph
+****
+
+****
+	The number of vertex with degree odd cannot be equal to one in a undirected graph
+
