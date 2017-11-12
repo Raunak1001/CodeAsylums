@@ -19,25 +19,6 @@ using namespace std;
 #define show(a) rep(i,0,a.size()){cout <<a[i]<<" ";}
 #define ct(a) cout <<a<<endl
 
-ll multi(ll a,ll b,ll c){
-
-	ll ans=0LL;
-	while(b){
-		if(b&1LL){
-			ans=a+ans;
-			if(ans>=c){
-				ans-=c;
-			}
-		}
-		a<<=1;
-		if(a>=c){
-			a-=c;
-		}
-		ans%=c;
-		b>>=1;
-	}
-return ans;
-}
 
 
 int main(){
@@ -46,46 +27,35 @@ int main(){
 		cout.tie(NULL);
 
 		ll t;
-		cin >>t;
+		cin >> t;
 		while(t--){
+
 			ll n;
-			cin >>n;
-			vi v(n);
+			cin >> n;
+			vi a(n);
 			for(ll i=0;i<n;i++){
-				cin >> v[i];
-				
+				cin >> a[i];
 			}
-			ll a,b,c;
-			cin >>a>>b>>c;
-			string s;
-			cin >>s;
-			ll add=0,mul=1;
-			ll x=0,y=n-1;
-			ll z=1;
-
+			ll k;
+			cin >> k;
+			sort(a.begin(),a.end());
+			ll ans=0;
 			for(ll i=0;i<n;i++){
-				if(s[i]=='R'){
-					swap(x,y);
-					z*=-1;
-				}else if(s[i]=='A'){
-					add=(add+a)%c;
+				ll j=i+1;
+				ll l=n-1;
+				while(j<l){
+					if(a[i]+a[j]+a[l]<=k){
+						j++;
+					}else{
+						ans+=(l-j);
+						l--;						
+					}
 				}
-				else if(s[i]=='M'){
-					mul=multi(mul,b,c);
-					//cout <<  mul<< endl;
-					add=multi(add,b,c);
-					// 	mul%=c;
-				}
-				
-				ll ans=multi(mul,v[x],c);
-				ans=(ans+add)%c;
-				cout << ans%c<<" ";
-				x+=z;
 			}
-			cout << endl;
-
+			cout << ans<< endl;
 
 		}
+
 
 
 	return 0;
